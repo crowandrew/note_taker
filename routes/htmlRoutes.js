@@ -21,7 +21,7 @@ router.get("/", function (req, res) {
 
 // Directs to the notes page 
 router.get("/notes", function (req, res) {
-    res.sendFile(path.join(__dirname, "notes.html"));
+    res.sendFile(path.join(__dirname, "../public/notes.html"));
 });
 
 // Exports router

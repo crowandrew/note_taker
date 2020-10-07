@@ -17,9 +17,7 @@ app.use(express.json());
 
 // Array
 // =============================================================
-let notesData = [{
-    name: "bob"
-}]; //=> JSON DB
+let notesData = [{"title":"Test Title","text":"Test text"}]; //=> JSON DB
 
 // API Routes
 // =============================================================
@@ -33,8 +31,8 @@ router.get("/api/notes", function (req, res) {
 router.post("/api/notes", function (req, res) {
     const newNote = req.body;
     console.log(newNote);
-    tables.push(newNote);
-    res.json(true);
+    notesData.push(newNote);
+    res.json(newNote);
 });
 
 // Deleting a specific note
