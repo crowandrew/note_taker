@@ -3,9 +3,9 @@
 const express = require("express");
 const path = require("path");
 
-// Sets up public folder for express
+// Sets up the Express App
 // =============================================================
-app.use(express.static('public'))
+const app = express();
 
 // Sets up the router for express
 // =============================================================

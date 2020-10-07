@@ -2,6 +2,10 @@
 // =============================================================
 const express = require("express");
 
+// Sets up the Express App
+// =============================================================
+const app = express();
+
 // Sets up the router for express
 // =============================================================
 const router = express.Router();
@@ -13,18 +17,20 @@ app.use(express.json());
 
 // Array
 // =============================================================
-let notesData = []; //=> JSON DB
+let notesData = [{
+    name: "bob"
+}]; //=> JSON DB
 
 // API Routes
 // =============================================================
 
 //Returns the notes from JSON DB
-app.get("/api/notes", function (req, res) {
+router.get("/api/notes", function (req, res) {
     return res.json(notesData);
 });
 
 // Create New Notes - takes in JSON input
-app.post("/api/notes", function (req, res) {
+router.post("/api/notes", function (req, res) {
     const newNote = req.body;
     console.log(newNote);
     tables.push(newNote);
@@ -32,6 +38,10 @@ app.post("/api/notes", function (req, res) {
 });
 
 // Deleting a specific note
-app.get("api/notes/:id", function (req, res) {
+router.get("api/notes/:id", function (req, res) {
     // deletes specific note based on id
 });
+
+// Exports router
+// =============================================================
+module.exports = router;
