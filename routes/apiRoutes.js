@@ -88,7 +88,7 @@ router.delete("/api/notes/:id", function (req, res) {
                 console.log("Error writing file:", err);
             }
         })
-        return res.json(false)
+        return res.json(true)
     }
 
     )
