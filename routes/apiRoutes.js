@@ -2,7 +2,6 @@
 // =============================================================
 const express = require("express");
 const fs = require("fs");
-const { request } = require("http");
 
 // Sets up the Express App
 // =============================================================
@@ -17,7 +16,7 @@ const router = express.Router();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-// JSON Read and Write Functions
+// JSON Read Function
 // =============================================================
 function jsonReader(filePath, cb) {
     fs.readFile(filePath, (err, fileData) => {
@@ -32,7 +31,6 @@ function jsonReader(filePath, cb) {
         }
     })
 }
-
 
 // API Routes
 // =============================================================
@@ -77,6 +75,7 @@ router.post("/api/notes", function (req, res) {
     )
 });
 
+// Delete note from JSON db
 router.delete("/api/notes/:id", function (req, res) {
     jsonReader("./db/db.json", (err, notes) => {
         if (err) {
